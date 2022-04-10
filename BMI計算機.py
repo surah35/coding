@@ -1,8 +1,11 @@
-from os import remove
+from faulthandler import disable
+from os import link, remove
 import tkinter
 from tkinter import *
 from turtle import textinput, width
 from click import command
+import webbrowser
+
 # creat windows
 win = Tk()
 win.title("BMI計算機")
@@ -28,6 +31,9 @@ def reset():
     entry_w.delete(0,'end')
     label['text'] = ""
     label_inform['text'] = ""
+
+def link_web():
+    webbrowser.open_new("https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=542&pid=9737")
     
 #物件
 
@@ -63,6 +69,13 @@ label.grid(row=4,column=1)
 
 label_inform = Label(font=30,fg="red")
 label_inform.grid(row=6,column=1)
+
+button_web = Button(text="資料來源：衛生福利部全民健康署",
+font=("times",13,"underline"),fg="blue",command=link_web)
+button_web.config()
+button_web.grid(row=8,column=0,columnspan=2)
+
+
 #------------------------------
 
 
