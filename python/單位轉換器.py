@@ -16,7 +16,7 @@ win.resizable(False,False)
 #function
 def running():
     try:
-         int(entry_1.get())
+         int(entry_1.get()) or int(entry_2.get())
     except:
         messagebox.showwarning("警告","請輸入數字") 
 
